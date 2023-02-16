@@ -44,7 +44,7 @@ func TestDeserializeComplexInput(t *testing.T) {
 	assert.Equal(t, fi[3][1], "GSO")
 }
 
-func TestFindStartAndEndFlightSimple(t *testing.T) {
+func TestNaiveFindStartAndEndFlightSimple(t *testing.T) {
 	// this tells go that this test can run in Parallel
 	// with other t.parallel enabled unit tests
 	t.Parallel()
@@ -56,14 +56,14 @@ func TestFindStartAndEndFlightSimple(t *testing.T) {
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
-	flightOutput := fi.FindStartAndEndFlight()
+	flightOutput := fi.NaiveFindStartAndEndFlight()
 	// should be no errors
 	assert.Equal(t, flightOutput.ErrorInformation, "")
 
 	assert.Equal(t, flightOutput.RawOutput, []string{"SFO", "JFK"})
 }
 
-func TestFindStartAndEndFlightComplex(t *testing.T) {
+func TestNaiveFindStartAndEndFlightComplex(t *testing.T) {
 	// this tells go that this test can run in Parallel
 	// with other t.parallel enabled unit tests
 	t.Parallel()
@@ -75,14 +75,14 @@ func TestFindStartAndEndFlightComplex(t *testing.T) {
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
-	flightOutput := fi.FindStartAndEndFlight()
+	flightOutput := fi.NaiveFindStartAndEndFlight()
 	// should be no errors
 	assert.Equal(t, flightOutput.ErrorInformation, "")
 
 	assert.Equal(t, flightOutput.RawOutput, []string{"SFO", "EWR"})
 }
 
-func TestFindStartAndEndFlightFlightLoop(t *testing.T) {
+func TestNaiveFindStartAndEndFlightFlightLoop(t *testing.T) {
 	// this tells go that this test can run in Parallel
 	// with other t.parallel enabled unit tests
 	t.Parallel()
@@ -95,7 +95,32 @@ func TestFindStartAndEndFlightFlightLoop(t *testing.T) {
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
-	flightOutput := fi.FindStartAndEndFlight()
+	flightOutput := fi.NaiveFindStartAndEndFlight()
 	// should error out
 	assert.Contains(t, flightOutput.ErrorInformation, "Unable to find")
+}
+
+func TestNaiveFindStartAndEndFlightExtraArrival(t *testing.T) {
+	// this tells go that this test can run in Parallel
+	// with other t.parallel enabled unit tests
+	t.Parallel()
+
+	// this test inspired me to do the linked list implementation
+	// as I didn't think my naive solution would be able
+	// detect and diagnose this test case without a lot of extra work
+	// I also wanted to be able to adequately show the flight plan
+	// and this implementation also made that impossible.
+	t.Skip()
+
+	// GSO has two entries
+	sample := `[["IND", "ATL"], ["SFO", "ATL"], ["GSO", "IND"], ["GSO", "JFK"], ["ATL", "GSO"]]`
+	fi := models.FlightsInput{}
+
+	err := json.Unmarshal([]byte(sample), &fi)
+	// ensure no Unmarshal error
+	assert.Nil(t, err)
+
+	flightOutput := fi.NaiveFindStartAndEndFlight()
+	// should error out
+	assert.NotEmpty(t, flightOutput.ErrorInformation)
 }
