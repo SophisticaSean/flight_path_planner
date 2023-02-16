@@ -4,6 +4,12 @@
   This project is able to take input such as `[["IND", "EWR"], ["SFO", "ATL"], ["GSO", "IND"], ["ATL", "GSO"]]`
   and return the flight path `SFO -> ATL -> GSO -> IND -> EWR` and initial departure and final arrival airport `["SFO", "EWR"]`.
 
+## Continuous Integration Configuration
+  Github Actions is configured on this repo for 3 jobs:
+  - build: this will run `go build ./...` and ensure it passes.
+  - test: this will run `go test ./...` and ensure it passes.
+  - lint: this will run `golangci-lint -v --color=always run ./...` and ensure it passes.
+
 ## How to use this project
   
   ### Requirements
