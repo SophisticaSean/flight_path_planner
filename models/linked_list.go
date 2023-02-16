@@ -13,7 +13,7 @@ func (fi FlightsInput) FindStartAndEndFlightLinkedList() (fo FlightOutput) {
 	for _, flightPair := range fi {
 		// ensure all flightPairs are exactly 2 long
 		if len(flightPair) != 2 {
-			fo.ErrorInformation = fmt.Sprintf("Item %v does not have exactly 2 airports.", flightPair)
+			fo.ErrorInformation = fmt.Sprintf("Item %v does not have exactly two airports.", flightPair)
 			return fo
 		}
 

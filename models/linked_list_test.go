@@ -135,3 +135,21 @@ func TestLinkedListDoubleDepartures(t *testing.T) {
 	// should have an error
 	assert.Contains(t, flightOutput.ErrorInformation, "Arrival airport IND")
 }
+
+func TestLinkedListInvalidList(t *testing.T) {
+	// this tells go that this test can run in Parallel
+	// with other t.parallel enabled unit tests
+	t.Parallel()
+
+	// IND is missing a 2nd item
+	sample := `[["IND"], ["SFO", "ATL"], ["ATL", "SLC"], ["GSO", "IND"]]`
+	fi := models.FlightsInput{}
+
+	err := json.Unmarshal([]byte(sample), &fi)
+	// ensure no Unmarshal error
+	assert.Nil(t, err)
+
+	flightOutput := fi.FindStartAndEndFlightLinkedList()
+	// should have an error
+	assert.Contains(t, flightOutput.ErrorInformation, "Item [IND] does not have exactly two airports.")
+}
