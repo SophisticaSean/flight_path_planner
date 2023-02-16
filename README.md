@@ -28,7 +28,8 @@
   - `curl -X POST "localhost:8080/calculate" -d '[["IND", "EWR"], ["EWR", "JFK"]]'`
 
   ### Code Coverage
-  with 17 unit tests, we have the following coverage:
+  To compute the above code coverage locally, use `go test --cover ./...`
+  With 17 unit tests, we have the following coverage:
   ```bash
     go test --cover ./...
     ?       github.com/SophisticaSean/flight_path_calculator        [no test files]
@@ -40,5 +41,4 @@
   - controllers:
   To increase coverage on controllers, we'd have to implement an interface around models/flightoutputs to induce json serialization errors.
   The effort to get that increased coverage isn't always worth the extra work it requires, so I'm happy with the coverage on controllers as it stands.
-  To compute the above code coverage locally, use `go test --cover ./...`
 
