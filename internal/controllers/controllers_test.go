@@ -102,4 +102,5 @@ func TestCalculate(t *testing.T) {
 
 	// ensure our path is correct
 	assert.Equal(t, "SLC - JFK - SFO - ABS", flightOutput.Path)
+	assert.Nil(t, "")
 }
