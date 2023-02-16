@@ -10,6 +10,8 @@
   - test: this will run `go test ./...` and ensure it passes.
   - lint: this will run `golangci-lint -v --color=always run ./...` and ensure it passes.
 
+  To view actions in this repo go [here](https://github.com/SophisticaSean/flight_path_planner/actions).
+
 ## How to use this project
   
   ### Requirements
