@@ -23,7 +23,7 @@ func TestLinkedListComplex(t *testing.T) {
 	flightOutput := fi.FindStartAndEndFlightLinkedList()
 	// should be no errors
 	assert.Equal(t, "", flightOutput.ErrorInformation)
-	assert.Equal(t, []string{"SFO", "EWR"}, flightOutput.RawOutput)
+	assert.Equal(t, []string{"SFO", "EWR"}, flightOutput.CalculateResult)
 	assert.Equal(t, "SFO - ATL - GSO - IND - EWR", flightOutput.Path)
 }
 

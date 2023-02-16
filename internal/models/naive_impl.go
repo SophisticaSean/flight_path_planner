@@ -28,7 +28,7 @@ func (fi FlightsInput) FindStartAndEndFlightNaive() (fo FlightOutput) {
 	}
 
 	fo = FlightOutput{
-		RawOutput: []string{
+		CalculateResult: []string{
 			startFlight,
 			endFlight,
 		},

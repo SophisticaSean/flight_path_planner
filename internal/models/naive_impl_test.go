@@ -60,7 +60,7 @@ func TestNaiveFindStartAndEndFlightSimple(t *testing.T) {
 	// should be no errors
 	assert.Equal(t, flightOutput.ErrorInformation, "")
 
-	assert.Equal(t, flightOutput.RawOutput, []string{"SFO", "JFK"})
+	assert.Equal(t, flightOutput.CalculateResult, []string{"SFO", "JFK"})
 }
 
 func TestNaiveFindStartAndEndFlightComplex(t *testing.T) {
@@ -79,7 +79,7 @@ func TestNaiveFindStartAndEndFlightComplex(t *testing.T) {
 	// should be no errors
 	assert.Equal(t, flightOutput.ErrorInformation, "")
 
-	assert.Equal(t, flightOutput.RawOutput, []string{"SFO", "EWR"})
+	assert.Equal(t, flightOutput.CalculateResult, []string{"SFO", "EWR"})
 }
 
 func TestNaiveFindStartAndEndFlightFlightLoop(t *testing.T) {

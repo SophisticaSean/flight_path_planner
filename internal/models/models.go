@@ -2,7 +2,7 @@ package models
 
 type FlightsInput [][]string
 type FlightOutput struct {
-	RawOutput             []string
+	CalculateResult       []string
 	FinalDepartureAirport string
 	FinalArrivalAirport   string
 	Path                  string

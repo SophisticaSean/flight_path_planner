@@ -78,7 +78,7 @@ func (fi FlightsInput) FindStartAndEndFlightLinkedList() (fo FlightOutput) {
 
 	fo.FinalArrivalAirport = endFlight
 	fo.FinalDepartureAirport = startFlight
-	fo.RawOutput = []string{
+	fo.CalculateResult = []string{
 		startFlight,
 		endFlight,
 	}
