@@ -87,13 +87,6 @@ func (fi FlightsInput) FindStartAndEndFlightLinkedList() (fo FlightOutput) {
 	return fo
 }
 
-// pretty print a linked list
-func printLinkedList(ll *list.List) {
-	for e := ll.Front(); e != nil; e = e.Next() {
-		fmt.Println(e.Value)
-	}
-}
-
 // turn a linked list from "['EWR', 'SFO', 'ATL']" -> "EWR -> SFO -> ATL"
 func concatLinkedList(ll *list.List) (out string) {
 	for e := ll.Front(); e != nil; e = e.Next() {

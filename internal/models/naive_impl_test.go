@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/SophisticaSean/flight_path_calculator/models"
+	"github.com/SophisticaSean/flight_path_calculator/internal/models"
 	"github.com/stretchr/testify/assert"
 )
 
