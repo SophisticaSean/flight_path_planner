@@ -2,6 +2,10 @@ package models
 
 import "fmt"
 
+// FindStartAndEndFlightNaive was my first/initial solution to this problem
+// It satisfied a decent chunk of test cases but I was unhappy that it
+// wasn't able to show me the ending path from A -> B
+// so then I wrote the linked_list implementation.
 func (fi FlightsInput) FindStartAndEndFlightNaive() (fo FlightOutput) {
 	startFlight := ""
 	endFlight := ""
