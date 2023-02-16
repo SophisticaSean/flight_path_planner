@@ -6,43 +6,24 @@ import (
 )
 
 func (fi FlightsInput) FindStartAndEndFlightLinkedList() (fo FlightOutput) {
-	// ensure every FlightsInput has two items
-	// also ensure arrivals and departures are unique
-	arrivals := make(map[string]string)
-	departures := make(map[string]string)
-	for _, flightPair := range fi {
-		// ensure all flightPairs are exactly 2 long
-		if len(flightPair) != 2 {
-			fo.ErrorInformation = fmt.Sprintf("Item %v does not have exactly two airports.", flightPair)
-			return fo
-		}
-
-		// ensure departure is unique
-		departure := flightPair[0]
-		_, ok := departures[departure]
-		if ok {
-			fo.ErrorInformation = fmt.Sprintf("Departure airport %v appears more than once in the given flight plan.", departure)
-			return fo
-		}
-		departures[departure] = ""
-
-		// ensure arrival is unique
-		arrival := flightPair[1]
-		_, ok = arrivals[arrival]
-		if ok {
-			fo.ErrorInformation = fmt.Sprintf("Arrival airport %v appears more than once in the given flight plan.", arrival)
-			return fo
-		}
-		arrivals[arrival] = ""
+	// validate our FlightsInput struct
+	err := validateFlightsInput(fi)
+	if err != nil {
+		fo.ErrorInformation = err.Error()
+		return fo
 	}
 
 	// using a map to keep track of which airport is in what location in the list
 	itemMap := make(map[string]*list.Element)
+	// using go std lib doubly linked list implementation in container/list
 	linkedList := list.New()
 
+	// complete 1 iteration of buildFlightPath to setup our loop variables
 	newLL, newTrackingMap, notFound := buildFlightPath(linkedList, itemMap, fi)
-	// recurse up to len(inputFlights)+1 times to try to populate the linked list
+	// loop up to len(inputFlights)+1 times to try to populate the linked list
 	solutionFound := false
+	// maxLoopCount len(fi) + 1, there should never be a scenario when we need more
+	// loops to fill the linked list.
 	maxLoopCount := len(fi) + 1
 	for i := 0; i < maxLoopCount; i++ {
 		newLL, newTrackingMap, notFound = buildFlightPath(newLL, newTrackingMap, notFound)
@@ -85,6 +66,37 @@ func (fi FlightsInput) FindStartAndEndFlightLinkedList() (fo FlightOutput) {
 	fo.Path = path
 
 	return fo
+}
+
+func validateFlightsInput(fi FlightsInput) error {
+	// ensure every FlightsInput has two items
+	// also ensure arrivals and departures are unique
+	arrivals := make(map[string]string)
+	departures := make(map[string]string)
+	for _, flightPair := range fi {
+		// ensure all flightPairs are exactly 2 long
+		if len(flightPair) != 2 {
+			return fmt.Errorf("Item %v does not have exactly two airports.", flightPair)
+		}
+
+		// ensure departure is unique
+		departure := flightPair[0]
+		_, ok := departures[departure]
+		if ok {
+			return fmt.Errorf("Departure airport %v appears more than once in the given flight plan.", departure)
+		}
+		departures[departure] = ""
+
+		// ensure arrival is unique
+		arrival := flightPair[1]
+		_, ok = arrivals[arrival]
+		if ok {
+			return fmt.Errorf("Arrival airport %v appears more than once in the given flight plan.", arrival)
+		}
+		arrivals[arrival] = ""
+	}
+
+	return nil
 }
 
 // turn a linked list from "['EWR', 'SFO', 'ATL']" -> "EWR -> SFO -> ATL"
