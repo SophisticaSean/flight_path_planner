@@ -7,12 +7,33 @@ import (
 
 func (fi FlightsInput) FindStartAndEndFlightLinkedList() (fo FlightOutput) {
 	// ensure every FlightsInput has two items
+	// also ensure arrivals and departures are unique
+	arrivals := make(map[string]string)
+	departures := make(map[string]string)
 	for _, flightPair := range fi {
 		// ensure all flightPairs are exactly 2 long
 		if len(flightPair) != 2 {
 			fo.ErrorInformation = fmt.Sprintf("Item %v does not have exactly 2 airports.", flightPair)
 			return fo
 		}
+
+		// ensure departure is unique
+		departure := flightPair[0]
+		_, ok := departures[departure]
+		if ok {
+			fo.ErrorInformation = fmt.Sprintf("Departure airport %v appears more than once in the given flight plan.", departure)
+			return fo
+		}
+		departures[departure] = ""
+
+		// ensure arrival is unique
+		arrival := flightPair[1]
+		_, ok = arrivals[arrival]
+		if ok {
+			fo.ErrorInformation = fmt.Sprintf("Arrival airport %v appears more than once in the given flight plan.", arrival)
+			return fo
+		}
+		arrivals[arrival] = ""
 	}
 
 	// using a map to keep track of which airport is in what location in the list
@@ -20,9 +41,9 @@ func (fi FlightsInput) FindStartAndEndFlightLinkedList() (fo FlightOutput) {
 	linkedList := list.New()
 
 	newLL, newTrackingMap, notFound := buildFlightPath(linkedList, itemMap, fi)
-	// loop up to 1000 times to try to populate the linked list
+	// recurse up to len(inputFlights)+1 times to try to populate the linked list
 	solutionFound := false
-	for i := 0; i < 1000; i++ {
+	for i := 0; i < len(fi)*len(fi)+1; i++ {
 		newLL, newTrackingMap, notFound = buildFlightPath(newLL, newTrackingMap, notFound)
 		// break if notFound is empty
 		if len(notFound) == 0 {
@@ -43,7 +64,6 @@ func (fi FlightsInput) FindStartAndEndFlightLinkedList() (fo FlightOutput) {
 		return fo
 	}
 
-	printLinkedList(newLL)
 	path := concatLinkedList(newLL)
 	fmt.Println(path)
 
@@ -115,23 +135,28 @@ func buildFlightPath(ll *list.List, inputMap map[string]*list.Element, fi Flight
 		} else {
 
 			// handle departure find
-			fmt.Printf("looking for %s\n", departure)
 			found := false
 			mark, ok := inputMap[departure]
 			if ok {
 				// if found we know where the arrival needs to be inserted
-				newMark := ll.InsertAfter(arrival, mark)
-				inputMap[arrival] = newMark
-				found = true
+				// first check if it's a duplicate
+				if !isDuplicateOfParentOrChild(arrival, mark) {
+					newMark := ll.InsertAfter(arrival, mark)
+					inputMap[arrival] = newMark
+					found = true
+				}
 			}
 
 			// handle arrival find
 			mark, ok = inputMap[arrival]
 			if ok {
-				// if found we know where the arrival needs to be inserted
-				newMark := ll.InsertBefore(departure, mark)
-				inputMap[departure] = newMark
-				found = true
+				// if found we know where the departure needs to be inserted
+				// first check if it's a duplicate
+				if !isDuplicateOfParentOrChild(departure, mark) {
+					newMark := ll.InsertBefore(departure, mark)
+					inputMap[departure] = newMark
+					found = true
+				}
 			}
 
 			// handle not found
@@ -143,4 +168,37 @@ func buildFlightPath(ll *list.List, inputMap map[string]*list.Element, fi Flight
 	}
 
 	return ll, inputMap, notFound
+}
+
+func isDuplicateOfParentOrChild(potentialAddition string, element *list.Element) bool {
+	parent := ""
+	child := ""
+	ok := false
+
+	// coerce element's parent to a string
+	prev := element.Prev()
+	if prev != nil {
+		parent, ok = prev.Value.(string)
+		if !ok {
+			parent = ""
+		}
+	}
+
+	// coerce element's child to a string
+	next := element.Next()
+	if next != nil {
+		child, ok = next.Value.(string)
+		if !ok {
+			child = ""
+		}
+	}
+
+	// check to see if either parent or child equal potentialAddition
+	if parent == potentialAddition {
+		return true
+	}
+	if child == potentialAddition {
+		return true
+	}
+	return false
 }

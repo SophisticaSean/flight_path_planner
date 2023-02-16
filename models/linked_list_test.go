@@ -13,7 +13,26 @@ func TestLinkedListComplex(t *testing.T) {
 	// with other t.parallel enabled unit tests
 	t.Parallel()
 
+	fi := models.FlightsInput{}
+
 	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["GSO", "IND"], ["ATL", "GSO"]]`
+	err := json.Unmarshal([]byte(sample), &fi)
+	// ensure no Unmarshal error
+	assert.Nil(t, err)
+
+	flightOutput := fi.FindStartAndEndFlightLinkedList()
+	// should be no errors
+	assert.Equal(t, "", flightOutput.ErrorInformation)
+	assert.Equal(t, []string{"SFO", "EWR"}, flightOutput.RawOutput)
+	assert.Equal(t, "SFO -> ATL -> GSO -> IND -> EWR", flightOutput.Path)
+}
+
+func TestLinkedListHuge(t *testing.T) {
+	// this tells go that this test can run in Parallel
+	// with other t.parallel enabled unit tests
+	t.Parallel()
+
+	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["ABS", "IND"], ["ATL", "GSO"], ["GSO", "ABS"], ["EWR", "ABC"]]`
 	fi := models.FlightsInput{}
 
 	err := json.Unmarshal([]byte(sample), &fi)
@@ -22,9 +41,9 @@ func TestLinkedListComplex(t *testing.T) {
 
 	flightOutput := fi.FindStartAndEndFlightLinkedList()
 	// should be no errors
-	assert.Equal(t, flightOutput.ErrorInformation, "")
-	assert.Equal(t, flightOutput.RawOutput, []string{"SFO", "EWR"})
-	assert.Equal(t, flightOutput.Path, "SFO -> ATL -> GSO -> IND -> EWR")
+	assert.Equal(t, "", flightOutput.ErrorInformation)
+	// assert.Equal(t, flightOutput.RawOutput, []string{"SFO", "EWR"})
+	assert.Equal(t, "SFO -> ATL -> GSO -> ABS -> IND -> EWR -> ABC", flightOutput.Path)
 }
 
 func TestLinkedListLoop(t *testing.T) {
@@ -60,5 +79,59 @@ func TestLinkedListPartialLoop(t *testing.T) {
 
 	flightOutput := fi.FindStartAndEndFlightLinkedList()
 	// should be no errors
-	assert.Contains(t, flightOutput.ErrorInformation, "Duplicates found in")
+	assert.Contains(t, flightOutput.ErrorInformation, "Arrival airport ATL")
+}
+
+func TestLinkedListUnconnectedPaths(t *testing.T) {
+	// this tells go that this test can run in Parallel
+	// with other t.parallel enabled unit tests
+	t.Parallel()
+
+	// ["SLC", "JFK"] is completely isolated
+	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["GSO", "IND"], ["ATL", "GSO"], ["SLC", "JFK"]]`
+	fi := models.FlightsInput{}
+
+	err := json.Unmarshal([]byte(sample), &fi)
+	// ensure no Unmarshal error
+	assert.Nil(t, err)
+
+	flightOutput := fi.FindStartAndEndFlightLinkedList()
+	// should be no errors
+	assert.Contains(t, flightOutput.ErrorInformation, "Unable to find a connecting path")
+}
+
+func TestLinkedListDoubleArrivals(t *testing.T) {
+	// this tells go that this test can run in Parallel
+	// with other t.parallel enabled unit tests
+	t.Parallel()
+
+	// ATL has two different arrival entries
+	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["ATL", "SLC"], ["GSO", "IND"], ["ATL", "GSO"]]`
+	fi := models.FlightsInput{}
+
+	err := json.Unmarshal([]byte(sample), &fi)
+	// ensure no Unmarshal error
+	assert.Nil(t, err)
+
+	flightOutput := fi.FindStartAndEndFlightLinkedList()
+	// should have an error
+	assert.Contains(t, flightOutput.ErrorInformation, "Departure airport ATL")
+}
+
+func TestLinkedListDoubleDepartures(t *testing.T) {
+	// this tells go that this test can run in Parallel
+	// with other t.parallel enabled unit tests
+	t.Parallel()
+
+	// IND has two different arrival entries
+	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["ATL", "SLC"], ["GSO", "IND"], ["JFK", "IND"]]`
+	fi := models.FlightsInput{}
+
+	err := json.Unmarshal([]byte(sample), &fi)
+	// ensure no Unmarshal error
+	assert.Nil(t, err)
+
+	flightOutput := fi.FindStartAndEndFlightLinkedList()
+	// should have an error
+	assert.Contains(t, flightOutput.ErrorInformation, "Arrival airport IND")
 }

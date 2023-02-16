@@ -38,9 +38,6 @@ func (fi FlightsInput) FindStartAndEndFlight() (fo FlightOutput) {
 		return fo
 	}
 
-	fmt.Println(startFlight)
-	fmt.Println(endFlight)
-
 	fo = FlightOutput{
 		RawOutput: []string{
 			startFlight,
