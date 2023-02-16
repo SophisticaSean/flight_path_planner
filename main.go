@@ -11,5 +11,6 @@ func main() {
 	http.Handle("/calculate", http.HandlerFunc(controllers.CalculateHandler))
 	fmt.Println("listening on localhost:8080/calculate")
 	// ignoring the error value returned by ListenAndServe
-	_ = http.ListenAndServe(":8080", nil)
+	// _ = http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8080", nil)
 }
