@@ -7,8 +7,8 @@
 ## How to use this project
   
   ### Requirements
-    - go 1.19.5
-    - [golangci-lint](https://golangci-lint.run/usage/install/)
+  - go 1.19.5
+  - [golangci-lint](https://golangci-lint.run/usage/install/)
 
   ### Testing
   `go test ./...`
