@@ -56,7 +56,7 @@ func TestNaiveFindStartAndEndFlightSimple(t *testing.T) {
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
-	flightOutput := fi.NaiveFindStartAndEndFlight()
+	flightOutput := fi.FindStartAndEndFlightNaive()
 	// should be no errors
 	assert.Equal(t, flightOutput.ErrorInformation, "")
 
@@ -75,7 +75,7 @@ func TestNaiveFindStartAndEndFlightComplex(t *testing.T) {
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
-	flightOutput := fi.NaiveFindStartAndEndFlight()
+	flightOutput := fi.FindStartAndEndFlightNaive()
 	// should be no errors
 	assert.Equal(t, flightOutput.ErrorInformation, "")
 
@@ -95,7 +95,7 @@ func TestNaiveFindStartAndEndFlightFlightLoop(t *testing.T) {
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
-	flightOutput := fi.NaiveFindStartAndEndFlight()
+	flightOutput := fi.FindStartAndEndFlightNaive()
 	// should error out
 	assert.Contains(t, flightOutput.ErrorInformation, "Unable to find")
 }
@@ -120,7 +120,7 @@ func TestNaiveFindStartAndEndFlightExtraArrival(t *testing.T) {
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
-	flightOutput := fi.NaiveFindStartAndEndFlight()
+	flightOutput := fi.FindStartAndEndFlightNaive()
 	// should error out
 	assert.NotEmpty(t, flightOutput.ErrorInformation)
 }

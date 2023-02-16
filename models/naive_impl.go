@@ -2,7 +2,7 @@ package models
 
 import "fmt"
 
-func (fi FlightsInput) NaiveFindStartAndEndFlight() (fo FlightOutput) {
+func (fi FlightsInput) FindStartAndEndFlightNaive() (fo FlightOutput) {
 	startFlight := ""
 	endFlight := ""
 
