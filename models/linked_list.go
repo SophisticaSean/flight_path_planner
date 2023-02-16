@@ -43,7 +43,8 @@ func (fi FlightsInput) FindStartAndEndFlightLinkedList() (fo FlightOutput) {
 	newLL, newTrackingMap, notFound := buildFlightPath(linkedList, itemMap, fi)
 	// recurse up to len(inputFlights)+1 times to try to populate the linked list
 	solutionFound := false
-	for i := 0; i < len(fi)*len(fi)+1; i++ {
+	maxLoopCount := len(fi) + 1
+	for i := 0; i < maxLoopCount; i++ {
 		newLL, newTrackingMap, notFound = buildFlightPath(newLL, newTrackingMap, notFound)
 		// break if notFound is empty
 		if len(notFound) == 0 {
@@ -52,6 +53,9 @@ func (fi FlightsInput) FindStartAndEndFlightLinkedList() (fo FlightOutput) {
 		}
 	}
 
+	// return an error if solutionFound is still false
+	// this means our notFound slice was unable to empty completely
+	// indicating there's some orphans remainging in the flight path
 	if !solutionFound {
 		fo.ErrorInformation = "Unable to find a connecting path for given flights."
 		return fo
