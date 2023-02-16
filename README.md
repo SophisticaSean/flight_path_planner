@@ -1,8 +1,7 @@
 # flight_path_calculator
 
 ## What is this project?
-  This project is able to take input such as `[["IND", "EWR"], ["SFO", "ATL"], ["GSO", "IND"], ["ATL", "GSO"]]`
-  and return the flight path `SFO -> ATL -> GSO -> IND -> EWR` and initial departure and final arrival airport `["SFO", "EWR"]`.
+  This project is able to take HTTP POST input such as `[["IND", "EWR"], ["SFO", "ATL"], ["GSO", "IND"], ["ATL", "GSO"]]` on the endpoint `/calculate` and returns the flight path `SFO -> ATL -> GSO -> IND -> EWR` and initial departure and final arrival airport `["SFO", "EWR"]`.
 
 ## Continuous Integration Configuration
   Github Actions is configured on this repo for 3 jobs:
