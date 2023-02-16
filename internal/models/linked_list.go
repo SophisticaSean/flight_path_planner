@@ -93,7 +93,7 @@ func concatLinkedList(ll *list.List) (out string) {
 		if out == "" {
 			out = fmt.Sprintf("%s", e.Value)
 		} else {
-			out = fmt.Sprintf("%s -> %s", out, e.Value)
+			out = fmt.Sprintf("%s - %s", out, e.Value)
 		}
 	}
 	return out

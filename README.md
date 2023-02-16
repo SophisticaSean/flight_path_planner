@@ -18,4 +18,4 @@
 
   ### Running the project
   - `go run ./...`
-  - <TODO ADD CURL EXAMPLE HERE>
+  - `curl -X POST "localhost:8080/calculate" -d '[["IND", "EWR"], ["EWR", "JFK"]]'`

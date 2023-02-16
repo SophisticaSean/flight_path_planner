@@ -24,7 +24,7 @@ func TestLinkedListComplex(t *testing.T) {
 	// should be no errors
 	assert.Equal(t, "", flightOutput.ErrorInformation)
 	assert.Equal(t, []string{"SFO", "EWR"}, flightOutput.RawOutput)
-	assert.Equal(t, "SFO -> ATL -> GSO -> IND -> EWR", flightOutput.Path)
+	assert.Equal(t, "SFO - ATL - GSO - IND - EWR", flightOutput.Path)
 }
 
 func TestLinkedListHuge(t *testing.T) {
@@ -43,7 +43,7 @@ func TestLinkedListHuge(t *testing.T) {
 	// should be no errors
 	assert.Equal(t, "", flightOutput.ErrorInformation)
 	// assert.Equal(t, flightOutput.RawOutput, []string{"SFO", "EWR"})
-	assert.Equal(t, "SFO -> ATL -> GSO -> ABS -> IND -> EWR -> ABC", flightOutput.Path)
+	assert.Equal(t, "SFO - ATL - GSO - ABS - IND - EWR - ABC", flightOutput.Path)
 }
 
 func TestLinkedListLoop(t *testing.T) {
