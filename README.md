@@ -29,6 +29,7 @@
 
   ### Code Coverage
   To compute the above code coverage locally, use `go test --cover ./...`
+
   With 17 unit tests, we have the following coverage:
   ```bash
     go test --cover ./...
