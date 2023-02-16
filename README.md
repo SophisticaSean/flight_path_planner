@@ -37,9 +37,9 @@
     ok      github.com/SophisticaSean/flight_path_calculator/internal/controllers   (cached)        coverage: 72.0% of statements
     ok      github.com/SophisticaSean/flight_path_calculator/internal/models        (cached)        coverage: 94.2% of statements
   ```
-  - models: 
+  - 94.2% coverage on models: 
   94.2% coverage on models is satisfactory, the uncovered code is difficult to induce a failure for.
-  - controllers:
+  - 72.0% coverage on controllers:
   To increase coverage on controllers, we'd have to implement an interface around models/flightoutputs to induce json serialization errors.
   The effort to get that increased coverage isn't always worth the extra work it requires, so I'm happy with the coverage on controllers as it stands.
 
