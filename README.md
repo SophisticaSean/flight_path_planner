@@ -40,6 +40,7 @@
       "ErrorInformation": ""
     }
     ```
+
   - CalculateResult is the result desired specifically by PROMPT.md
   - FinalDepartureAirport is the initial departure airport.
   - FinalArrivalAirport is the final arrival airport.
