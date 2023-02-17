@@ -41,11 +41,11 @@
     }
 ```
 
-  - CalculateResult is the result desired specifically by PROMPT.md
-  - FinalDepartureAirport is the initial departure airport.
-  - FinalArrivalAirport is the final arrival airport.
-  - Path is the entire path from first departure to final arrival airport, in order.
-  - ErrorInformation is unused and is unwrapped and return in a 400 BAD REQUEST body if it exists.
+  - `CalculateResult` is the result desired specifically by PROMPT.md
+  - `FinalDepartureAirport` is the initial departure airport.
+  - `FinalArrivalAirport` is the final arrival airport.
+  - `Path` is the entire path from first departure to final arrival airport, in order.
+  - `ErrorInformation` is unused and is unwrapped and return in a 400 BAD REQUEST body if it exists.
 
   ### Benchmarks
   - `go test -bench=. -benchtime=1000ms ./...`
