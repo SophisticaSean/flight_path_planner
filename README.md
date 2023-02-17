@@ -15,6 +15,7 @@
   
   ### Requirements
   - go 1.19.5
+  - go mod tidy
   - [golangci-lint](https://golangci-lint.run/usage/install/)
 
   ### Testing
@@ -26,6 +27,26 @@
   ### Running the project
   - `go run ./...`
   - `curl -X POST "localhost:8080/calculate" -d '[["IND", "EWR"], ["EWR", "JFK"]]'`
+  - will return something like this: ```json
+    {
+      "CalculateResult": [
+        "IND",
+        "JFK"
+      ],
+      "FinalDepartureAirport": "IND",
+      "FinalArrivalAirport": "JFK",
+      "Path": "IND - EWR - JFK",
+      "ErrorInformation": ""
+    }
+    ```
+  - CalculateResult is the result desired specifically by PROMPT.md
+  - FinalDepartureAirport is the initial departure airport.
+  - FinalArrivalAirport is the final arrival airport.
+  - Path is the entire path from first departure to final arrival airport, in order.
+  - ErrorInformation is unused and is unwrapped and return in a 400 BAD REQUEST body if it exists.
+
+  ### Benchmarks
+  - `go test -bench=. -benchtime=1000ms ./...`
 
   ### Code Coverage
   To compute the above code coverage locally, use `go test --cover ./...`
