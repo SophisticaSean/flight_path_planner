@@ -27,7 +27,8 @@
   ### Running the project
   - `go run ./...`
   - `curl -X POST "localhost:8080/calculate" -d '[["IND", "EWR"], ["EWR", "JFK"]]'`
-  - will return something like this: ```json
+  - will return something like this: 
+  ```json
     {
       "CalculateResult": [
         "IND",
