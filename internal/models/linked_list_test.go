@@ -15,8 +15,13 @@ func TestLinkedListComplex(t *testing.T) {
 
 	fi := models.FlightsInput{}
 
-	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["GSO", "IND"], ["ATL", "GSO"]]`
-	err := json.Unmarshal([]byte(sample), &fi)
+	inputData := `[
+  ["IND", "EWR"], 
+  ["SFO", "ATL"], 
+  ["GSO", "IND"], 
+  ["ATL", "GSO"]
+  ]`
+	err := json.Unmarshal([]byte(inputData), &fi)
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
@@ -32,10 +37,17 @@ func TestLinkedListHuge(t *testing.T) {
 	// with other t.parallel enabled unit tests
 	t.Parallel()
 
-	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["ABS", "IND"], ["ATL", "GSO"], ["GSO", "ABS"], ["EWR", "ABC"]]`
+	inputData := `[
+  ["IND", "EWR"], 
+  ["SFO", "ATL"], 
+  ["ABS", "IND"], 
+  ["ATL", "GSO"], 
+  ["GSO", "ABS"], 
+  ["EWR", "ABC"]
+  ]`
 	fi := models.FlightsInput{}
 
-	err := json.Unmarshal([]byte(sample), &fi)
+	err := json.Unmarshal([]byte(inputData), &fi)
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
@@ -52,10 +64,16 @@ func TestLinkedListLoop(t *testing.T) {
 	t.Parallel()
 
 	// ["EWR", "SFO"] creates a complete loop
-	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["GSO", "IND"], ["ATL", "GSO"], ["EWR", "SFO"]]`
+	inputData := `[
+  ["IND", "EWR"], 
+  ["SFO", "ATL"], 
+  ["GSO", "IND"], 
+  ["ATL", "GSO"], 
+  ["EWR", "SFO"]
+  ]`
 	fi := models.FlightsInput{}
 
-	err := json.Unmarshal([]byte(sample), &fi)
+	err := json.Unmarshal([]byte(inputData), &fi)
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
@@ -70,10 +88,16 @@ func TestLinkedListPartialLoop(t *testing.T) {
 	t.Parallel()
 
 	// ["EWR", "ATL"] creates a partial loop
-	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["GSO", "IND"], ["ATL", "GSO"], ["EWR", "ATL"]]`
+	inputData := `[
+  ["IND", "EWR"], 
+  ["SFO", "ATL"], 
+  ["GSO", "IND"], 
+  ["ATL", "GSO"], 
+  ["EWR", "ATL"]
+  ]`
 	fi := models.FlightsInput{}
 
-	err := json.Unmarshal([]byte(sample), &fi)
+	err := json.Unmarshal([]byte(inputData), &fi)
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
@@ -88,10 +112,16 @@ func TestLinkedListUnconnectedPaths(t *testing.T) {
 	t.Parallel()
 
 	// ["SLC", "JFK"] is completely isolated
-	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["GSO", "IND"], ["ATL", "GSO"], ["SLC", "JFK"]]`
+	inputData := `[
+  ["IND", "EWR"], 
+  ["SFO", "ATL"], 
+  ["GSO", "IND"], 
+  ["ATL", "GSO"], 
+  ["SLC", "JFK"]
+  ]`
 	fi := models.FlightsInput{}
 
-	err := json.Unmarshal([]byte(sample), &fi)
+	err := json.Unmarshal([]byte(inputData), &fi)
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
@@ -106,10 +136,16 @@ func TestLinkedListDoubleArrivals(t *testing.T) {
 	t.Parallel()
 
 	// ATL has two different arrival entries
-	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["ATL", "SLC"], ["GSO", "IND"], ["ATL", "GSO"]]`
+	inputData := `[
+  ["IND", "EWR"], 
+  ["SFO", "ATL"], 
+  ["ATL", "SLC"], 
+  ["GSO", "IND"], 
+  ["ATL", "GSO"]
+  ]`
 	fi := models.FlightsInput{}
 
-	err := json.Unmarshal([]byte(sample), &fi)
+	err := json.Unmarshal([]byte(inputData), &fi)
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
@@ -124,10 +160,16 @@ func TestLinkedListDoubleDepartures(t *testing.T) {
 	t.Parallel()
 
 	// IND has two different arrival entries
-	sample := `[["IND", "EWR"], ["SFO", "ATL"], ["ATL", "SLC"], ["GSO", "IND"], ["JFK", "IND"]]`
+	inputData := `[
+  ["IND", "EWR"], 
+  ["SFO", "ATL"], 
+  ["ATL", "SLC"], 
+  ["GSO", "IND"], 
+  ["JFK", "IND"]
+  ]`
 	fi := models.FlightsInput{}
 
-	err := json.Unmarshal([]byte(sample), &fi)
+	err := json.Unmarshal([]byte(inputData), &fi)
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
@@ -142,10 +184,15 @@ func TestLinkedListInvalidList(t *testing.T) {
 	t.Parallel()
 
 	// IND is missing a 2nd item
-	sample := `[["IND"], ["SFO", "ATL"], ["ATL", "SLC"], ["GSO", "IND"]]`
+	inputData := `[
+  ["IND"], 
+  ["SFO", "ATL"], 
+  ["ATL", "SLC"], 
+  ["GSO", "IND"]
+  ]`
 	fi := models.FlightsInput{}
 
-	err := json.Unmarshal([]byte(sample), &fi)
+	err := json.Unmarshal([]byte(inputData), &fi)
 	// ensure no Unmarshal error
 	assert.Nil(t, err)
 
