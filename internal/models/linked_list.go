@@ -49,20 +49,18 @@ func (fi FlightsInput) FindStartAndEndFlightLinkedList() (fo FlightOutput) {
 		return fo
 	}
 
-	path := concatLinkedList(newLL)
-	fmt.Println(path)
-
 	startFlight := newLL.Front().Value.(string)
-	fmt.Printf("First departure: %s\n", startFlight)
-	endFlight := newLL.Back().Value.(string)
-	fmt.Printf("Last arrival: %s\n", endFlight)
-
-	fo.FinalArrivalAirport = endFlight
 	fo.FinalDepartureAirport = startFlight
+
+	endFlight := newLL.Back().Value.(string)
+	fo.FinalArrivalAirport = endFlight
+
 	fo.CalculateResult = []string{
 		startFlight,
 		endFlight,
 	}
+
+	path := concatLinkedList(newLL)
 	fo.Path = path
 
 	return fo

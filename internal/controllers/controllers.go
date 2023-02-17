@@ -29,6 +29,9 @@ func CalculateHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	flightOutput := flightInput.FindStartAndEndFlightLinkedList()
+	fmt.Println(flightOutput.Path)
+	fmt.Printf("First departure: %s\n", flightOutput.FinalDepartureAirport)
+	fmt.Printf("Last arrival: %s\n", flightOutput.FinalArrivalAirport)
 
 	// return just the error string on an error case
 	if flightOutput.ErrorInformation != "" {
