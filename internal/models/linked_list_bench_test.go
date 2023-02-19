@@ -2,6 +2,7 @@ package models_test
 
 import (
 	"encoding/json"
+	"fmt"
 	"math/rand"
 	"testing"
 
@@ -9,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func BenchmarkLinkedList(b *testing.B) {
+func BenchmarkLinkedList10Flights(b *testing.B) {
 	fi := models.FlightsInput{}
 
 	inputData := `[
@@ -22,14 +23,7 @@ func BenchmarkLinkedList(b *testing.B) {
   ["AAE", "AAF"],
   ["AAF", "AAG"],
   ["AAG", "AAH"],
-  ["AAH", "AAI"],
-  ["AAI", "AAJ"],
-  ["AAJ", "AAK"],
-  ["AAK", "AAL"],
-  ["AAL", "AAM"],
-  ["SFO", "ATL"], 
-  ["GSO", "IND"], 
-  ["ATL", "GSO"]
+  ["AAH", "AAI"]
   ]`
 
 	err := json.Unmarshal([]byte(inputData), &fi)
@@ -44,13 +38,13 @@ func BenchmarkLinkedList(b *testing.B) {
 	}
 
 	// should be no errors
-	assert.Equal(b, "", flightOutput.ErrorInformation)
-	assert.Equal(b, flightOutput.CalculateResult, []string{"SFO", "AAM"})
-	assert.Equal(b, "SFO - ATL - GSO - IND - EWR - AAA - AAB - AAC - AAD - AAE - AAF - AAG - AAH - AAI - AAJ - AAK - AAL - AAM", flightOutput.Path)
+	assert.Equal(b, flightOutput.ErrorInformation, "")
+	assert.Equal(b, flightOutput.CalculateResult, []string{"IND", "AAI"})
+	assert.Equal(b, "IND - EWR - AAA - AAB - AAC - AAD - AAE - AAF - AAG - AAH - AAI", flightOutput.Path)
 }
 
-func BenchmarkLinkedList10000Flights(b *testing.B) {
-	fi, solution := generateRandomFlightPath(10000)
+func BenchmarkLinkedList100Flights(b *testing.B) {
+	fi, solution, path := generateRandomFlightPath(1000)
 
 	flightOutput := fi.FindStartAndEndFlightLinkedList()
 
@@ -59,12 +53,27 @@ func BenchmarkLinkedList10000Flights(b *testing.B) {
 	}
 
 	// should be no errors
-	assert.Equal(b, "", flightOutput.ErrorInformation)
+	assert.Equal(b, flightOutput.ErrorInformation, "")
 	assert.Equal(b, flightOutput.CalculateResult, solution)
-	// assert.Equal(b, "SFO - ATL - GSO - IND - EWR - AAA - AAB - AAC - AAD - AAE - AAF - AAG - AAH - AAI - AAJ - AAK - AAL - AAM", flightOutput.Path)
+	assert.Equal(b, flightOutput.Path, path)
 }
 
-func BenchmarkNaiveImpl(b *testing.B) {
+func BenchmarkLinkedList1000Flights(b *testing.B) {
+	fi, solution, path := generateRandomFlightPath(1000)
+
+	flightOutput := fi.FindStartAndEndFlightLinkedList()
+
+	for n := 0; n < b.N; n++ {
+		flightOutput = fi.FindStartAndEndFlightLinkedList()
+	}
+
+	// should be no errors
+	assert.Equal(b, flightOutput.ErrorInformation, "")
+	assert.Equal(b, flightOutput.CalculateResult, solution)
+	assert.Equal(b, flightOutput.Path, path)
+}
+
+func BenchmarkNaiveImpl10Flights(b *testing.B) {
 	fi := models.FlightsInput{}
 
 	inputData := `[
@@ -77,14 +86,7 @@ func BenchmarkNaiveImpl(b *testing.B) {
   ["AAE", "AAF"],
   ["AAF", "AAG"],
   ["AAG", "AAH"],
-  ["AAH", "AAI"],
-  ["AAI", "AAJ"],
-  ["AAJ", "AAK"],
-  ["AAK", "AAL"],
-  ["AAL", "AAM"],
-  ["SFO", "ATL"], 
-  ["GSO", "IND"], 
-  ["ATL", "GSO"]
+  ["AAH", "AAI"]
   ]`
 
 	err := json.Unmarshal([]byte(inputData), &fi)
@@ -100,13 +102,13 @@ func BenchmarkNaiveImpl(b *testing.B) {
 
 	// should be no errors
 	assert.Equal(b, "", flightOutput.ErrorInformation)
-	assert.Equal(b, flightOutput.CalculateResult, []string{"SFO", "AAM"})
+	assert.Equal(b, flightOutput.CalculateResult, []string{"IND", "AAI"})
 	// path unimplemented for naive impl
 	// assert.Equal(b, "SFO - ATL - GSO - IND - EWR - AAA - AAB - AAC - AAD - AAE - AAF - AAG - AAH - AAI - AAJ - AAK - AAL - AAM", flightOutput.Path)
 }
 
-func BenchmarkNaive10000Flights(b *testing.B) {
-	fi, solution := generateRandomFlightPath(10000)
+func BenchmarkNaive100Flights(b *testing.B) {
+	fi, solution, _ := generateRandomFlightPath(100)
 
 	flightOutput := fi.FindStartAndEndFlightNaive()
 
@@ -118,12 +120,27 @@ func BenchmarkNaive10000Flights(b *testing.B) {
 	assert.Equal(b, "", flightOutput.ErrorInformation)
 	assert.Equal(b, flightOutput.CalculateResult, solution)
 }
+func BenchmarkNaive1000Flights(b *testing.B) {
+	fi, solution, _ := generateRandomFlightPath(1000)
 
-func generateRandomFlightPath(length int) (flights models.FlightsInput, solution []string) {
+	flightOutput := fi.FindStartAndEndFlightNaive()
+
+	for n := 0; n < b.N; n++ {
+		flightOutput = fi.FindStartAndEndFlightNaive()
+	}
+
+	// should be no errors
+	assert.Equal(b, "", flightOutput.ErrorInformation)
+	assert.Equal(b, flightOutput.CalculateResult, solution)
+	// path unimplemented for naive impl
+}
+
+func generateRandomFlightPath(length int) (flights models.FlightsInput, solution []string, flightPath string) {
 	currItem := ""
 	// always start on AAA
 	lastItem := "AAA"
 	firstItem := ""
+	orderedFlightSlice := []string{lastItem}
 	// keep track of values we've already seen
 	seen := make(map[string]string)
 	for i := 0; i < length; i++ {
@@ -141,8 +158,9 @@ func generateRandomFlightPath(length int) (flights models.FlightsInput, solution
 			firstItem = lastItem
 		}
 
-		path := []string{lastItem, currItem}
-		flights = append(flights, path)
+		orderedFlightSlice = append(orderedFlightSlice, currItem)
+		calcResult := []string{lastItem, currItem}
+		flights = append(flights, calcResult)
 		lastItem = currItem
 	}
 
@@ -151,7 +169,20 @@ func generateRandomFlightPath(length int) (flights models.FlightsInput, solution
 
 	solution = []string{firstItem, finalItem}
 
-	return flights, solution
+	flightPath = genTestFlightPath(orderedFlightSlice)
+	return flights, solution, flightPath
+}
+
+func genTestFlightPath(flights []string) (output string) {
+	for i, flight := range flights {
+		if i == 0 {
+			output = fmt.Sprintf("%s", flight)
+		} else {
+			output = fmt.Sprintf("%s - %s", output, flight)
+		}
+	}
+
+	return output
 }
 
 func randSeq(n int) string {
