@@ -48,6 +48,11 @@
   - `ErrorInformation` is unused and is unwrapped and return in a 400 BAD REQUEST body if it exists.
 
   ### Benchmarks
+  - need to install benchstat and benchcmp for benchmark diffs/comparisons
+  - `go get golang.org/x/perf/cmd/benchstat`
+  - `go install golang.org/x/perf/cmd/benchstat`
+  - `go get golang.org/x/perf/cmd/benchcmp`
+  - `go install golang.org/x/perf/cmd/benchcmp`
   - `go test -bench=. -benchtime=500ms ./...`
   - results:
   ```bash
