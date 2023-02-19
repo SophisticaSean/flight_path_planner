@@ -6,71 +6,17 @@
 === RUN   TestCalculate
 === PAUSE TestCalculate
 === CONT  TestCalculateInvalidJSON
---- PASS: TestCalculateInvalidJSON (0.00s)
 === CONT  TestCalculate
+--- PASS: TestCalculateInvalidJSON (0.00s)
 SLC - JFK - SFO - ABS
 First departure: SLC
 Last arrival: ABS
-=== CONT  TestCalculateInvalidFlightInput
-
-First departure: 
-Last arrival: 
---- PASS: TestCalculate (0.00s)
---- PASS: TestCalculateInvalidFlightInput (0.00s)
-=== RUN   TestCalculateInvalidJSON
-=== PAUSE TestCalculateInvalidJSON
-=== RUN   TestCalculateInvalidFlightInput
-=== PAUSE TestCalculateInvalidFlightInput
-=== RUN   TestCalculate
-=== PAUSE TestCalculate
-=== CONT  TestCalculateInvalidJSON
---- PASS: TestCalculateInvalidJSON (0.00s)
-=== CONT  TestCalculateInvalidFlightInput
-=== CONT  TestCalculate
-SLC - JFK - SFO - ABS
-First departure: SLC
-Last arrival: ABS
---- PASS: TestCalculate (0.00s)
-
-First departure: 
-Last arrival: 
---- PASS: TestCalculateInvalidFlightInput (0.00s)
-=== RUN   TestCalculateInvalidJSON
-=== PAUSE TestCalculateInvalidJSON
-=== RUN   TestCalculateInvalidFlightInput
-=== PAUSE TestCalculateInvalidFlightInput
-=== RUN   TestCalculate
-=== PAUSE TestCalculate
-=== CONT  TestCalculateInvalidJSON
-=== CONT  TestCalculate
-SLC - JFK - SFO - ABS
-First departure: SLC
-Last arrival: ABS
---- PASS: TestCalculateInvalidJSON (0.00s)
 --- PASS: TestCalculate (0.00s)
 === CONT  TestCalculateInvalidFlightInput
 
 First departure: 
 Last arrival: 
 --- PASS: TestCalculateInvalidFlightInput (0.00s)
-=== RUN   TestCalculateInvalidJSON
-=== PAUSE TestCalculateInvalidJSON
-=== RUN   TestCalculateInvalidFlightInput
-=== PAUSE TestCalculateInvalidFlightInput
-=== RUN   TestCalculate
-=== PAUSE TestCalculate
-=== CONT  TestCalculateInvalidJSON
---- PASS: TestCalculateInvalidJSON (0.00s)
-=== CONT  TestCalculateInvalidFlightInput
-=== CONT  TestCalculate
-
-First departure: 
-Last arrival: 
---- PASS: TestCalculateInvalidFlightInput (0.00s)
-SLC - JFK - SFO - ABS
-First departure: SLC
-Last arrival: ABS
---- PASS: TestCalculate (0.00s)
 === RUN   TestCalculateInvalidJSON
 === PAUSE TestCalculateInvalidJSON
 === RUN   TestCalculateInvalidFlightInput
@@ -96,19 +42,189 @@ Last arrival:
 === RUN   TestCalculate
 === PAUSE TestCalculate
 === CONT  TestCalculateInvalidJSON
-=== CONT  TestCalculate
 --- PASS: TestCalculateInvalidJSON (0.00s)
 === CONT  TestCalculateInvalidFlightInput
 
 First departure: 
 Last arrival: 
 --- PASS: TestCalculateInvalidFlightInput (0.00s)
+=== CONT  TestCalculate
 SLC - JFK - SFO - ABS
 First departure: SLC
 Last arrival: ABS
 --- PASS: TestCalculate (0.00s)
+=== RUN   TestCalculateInvalidJSON
+=== PAUSE TestCalculateInvalidJSON
+=== RUN   TestCalculateInvalidFlightInput
+=== PAUSE TestCalculateInvalidFlightInput
+=== RUN   TestCalculate
+=== PAUSE TestCalculate
+=== CONT  TestCalculateInvalidJSON
+=== CONT  TestCalculate
+--- PASS: TestCalculateInvalidJSON (0.00s)
+=== CONT  TestCalculateInvalidFlightInput
+SLC - JFK - SFO - ABS
+First departure: SLC
+Last arrival: ABS
+
+First departure: 
+Last arrival: 
+--- PASS: TestCalculateInvalidFlightInput (0.00s)
+--- PASS: TestCalculate (0.00s)
+=== RUN   TestCalculateInvalidJSON
+=== PAUSE TestCalculateInvalidJSON
+=== RUN   TestCalculateInvalidFlightInput
+=== PAUSE TestCalculateInvalidFlightInput
+=== RUN   TestCalculate
+=== PAUSE TestCalculate
+=== CONT  TestCalculateInvalidJSON
+--- PASS: TestCalculateInvalidJSON (0.00s)
+=== CONT  TestCalculate
+SLC - JFK - SFO - ABS
+First departure: SLC
+Last arrival: ABS
+=== CONT  TestCalculateInvalidFlightInput
+--- PASS: TestCalculate (0.00s)
+
+First departure: 
+Last arrival: 
+--- PASS: TestCalculateInvalidFlightInput (0.00s)
+=== RUN   TestCalculateInvalidJSON
+=== PAUSE TestCalculateInvalidJSON
+=== RUN   TestCalculateInvalidFlightInput
+=== PAUSE TestCalculateInvalidFlightInput
+=== RUN   TestCalculate
+=== PAUSE TestCalculate
+=== CONT  TestCalculateInvalidJSON
+--- PASS: TestCalculateInvalidJSON (0.00s)
+=== CONT  TestCalculate
+SLC - JFK - SFO - ABS
+First departure: SLC
+Last arrival: ABS
+--- PASS: TestCalculate (0.00s)
+=== CONT  TestCalculateInvalidFlightInput
+
+First departure: 
+Last arrival: 
+--- PASS: TestCalculateInvalidFlightInput (0.00s)
 PASS
-ok  	github.com/SophisticaSean/flight_path_calculator/internal/controllers	0.005s
+ok  	github.com/SophisticaSean/flight_path_calculator/internal/controllers	0.004s
+=== RUN   TestLinkedListComplex
+=== PAUSE TestLinkedListComplex
+=== RUN   TestLinkedListHuge
+=== PAUSE TestLinkedListHuge
+=== RUN   TestLinkedListLoop
+=== PAUSE TestLinkedListLoop
+=== RUN   TestLinkedListPartialLoop
+=== PAUSE TestLinkedListPartialLoop
+=== RUN   TestLinkedListUnconnectedPaths
+=== PAUSE TestLinkedListUnconnectedPaths
+=== RUN   TestLinkedListDoubleArrivals
+=== PAUSE TestLinkedListDoubleArrivals
+=== RUN   TestLinkedListDoubleDepartures
+=== PAUSE TestLinkedListDoubleDepartures
+=== RUN   TestLinkedListInvalidList
+=== PAUSE TestLinkedListInvalidList
+=== RUN   TestDeserializeSimpleInput
+=== PAUSE TestDeserializeSimpleInput
+=== RUN   TestDeserializeComplexInput
+=== PAUSE TestDeserializeComplexInput
+=== RUN   TestNaiveFindStartAndEndFlightSimple
+=== PAUSE TestNaiveFindStartAndEndFlightSimple
+=== RUN   TestNaiveFindStartAndEndFlightComplex
+=== PAUSE TestNaiveFindStartAndEndFlightComplex
+=== RUN   TestNaiveFindStartAndEndFlightFlightLoop
+=== PAUSE TestNaiveFindStartAndEndFlightFlightLoop
+=== RUN   TestNaiveFindStartAndEndFlightExtraArrival
+=== PAUSE TestNaiveFindStartAndEndFlightExtraArrival
+=== CONT  TestLinkedListComplex
+=== CONT  TestLinkedListInvalidList
+--- PASS: TestLinkedListComplex (0.00s)
+=== CONT  TestLinkedListDoubleDepartures
+--- PASS: TestLinkedListDoubleDepartures (0.00s)
+=== CONT  TestLinkedListDoubleArrivals
+--- PASS: TestLinkedListDoubleArrivals (0.00s)
+=== CONT  TestLinkedListUnconnectedPaths
+--- PASS: TestLinkedListUnconnectedPaths (0.00s)
+=== CONT  TestLinkedListPartialLoop
+--- PASS: TestLinkedListInvalidList (0.00s)
+=== CONT  TestLinkedListLoop
+--- PASS: TestLinkedListPartialLoop (0.00s)
+=== CONT  TestNaiveFindStartAndEndFlightSimple
+--- PASS: TestLinkedListLoop (0.00s)
+=== CONT  TestLinkedListHuge
+--- PASS: TestNaiveFindStartAndEndFlightSimple (0.00s)
+=== CONT  TestDeserializeComplexInput
+--- PASS: TestLinkedListHuge (0.00s)
+=== CONT  TestNaiveFindStartAndEndFlightExtraArrival
+--- PASS: TestDeserializeComplexInput (0.00s)
+=== CONT  TestNaiveFindStartAndEndFlightExtraArrival
+    naive_impl_test.go:113: 
+=== CONT  TestDeserializeSimpleInput
+--- PASS: TestDeserializeSimpleInput (0.00s)
+=== CONT  TestNaiveFindStartAndEndFlightFlightLoop
+--- SKIP: TestNaiveFindStartAndEndFlightExtraArrival (0.00s)
+--- PASS: TestNaiveFindStartAndEndFlightFlightLoop (0.00s)
+=== CONT  TestNaiveFindStartAndEndFlightComplex
+--- PASS: TestNaiveFindStartAndEndFlightComplex (0.00s)
+=== RUN   TestLinkedListComplex
+=== PAUSE TestLinkedListComplex
+=== RUN   TestLinkedListHuge
+=== PAUSE TestLinkedListHuge
+=== RUN   TestLinkedListLoop
+=== PAUSE TestLinkedListLoop
+=== RUN   TestLinkedListPartialLoop
+=== PAUSE TestLinkedListPartialLoop
+=== RUN   TestLinkedListUnconnectedPaths
+=== PAUSE TestLinkedListUnconnectedPaths
+=== RUN   TestLinkedListDoubleArrivals
+=== PAUSE TestLinkedListDoubleArrivals
+=== RUN   TestLinkedListDoubleDepartures
+=== PAUSE TestLinkedListDoubleDepartures
+=== RUN   TestLinkedListInvalidList
+=== PAUSE TestLinkedListInvalidList
+=== RUN   TestDeserializeSimpleInput
+=== PAUSE TestDeserializeSimpleInput
+=== RUN   TestDeserializeComplexInput
+=== PAUSE TestDeserializeComplexInput
+=== RUN   TestNaiveFindStartAndEndFlightSimple
+=== PAUSE TestNaiveFindStartAndEndFlightSimple
+=== RUN   TestNaiveFindStartAndEndFlightComplex
+=== PAUSE TestNaiveFindStartAndEndFlightComplex
+=== RUN   TestNaiveFindStartAndEndFlightFlightLoop
+=== PAUSE TestNaiveFindStartAndEndFlightFlightLoop
+=== RUN   TestNaiveFindStartAndEndFlightExtraArrival
+=== PAUSE TestNaiveFindStartAndEndFlightExtraArrival
+=== CONT  TestLinkedListComplex
+--- PASS: TestLinkedListComplex (0.00s)
+=== CONT  TestLinkedListDoubleDepartures
+--- PASS: TestLinkedListDoubleDepartures (0.00s)
+=== CONT  TestLinkedListDoubleArrivals
+--- PASS: TestLinkedListDoubleArrivals (0.00s)
+=== CONT  TestLinkedListLoop
+--- PASS: TestLinkedListLoop (0.00s)
+=== CONT  TestLinkedListHuge
+=== CONT  TestLinkedListPartialLoop
+=== CONT  TestDeserializeSimpleInput
+=== CONT  TestNaiveFindStartAndEndFlightExtraArrival
+=== CONT  TestLinkedListUnconnectedPaths
+=== CONT  TestNaiveFindStartAndEndFlightExtraArrival
+    naive_impl_test.go:113: 
+=== CONT  TestNaiveFindStartAndEndFlightFlightLoop
+=== CONT  TestLinkedListInvalidList
+=== CONT  TestNaiveFindStartAndEndFlightComplex
+=== CONT  TestNaiveFindStartAndEndFlightSimple
+=== CONT  TestDeserializeComplexInput
+--- PASS: TestLinkedListHuge (0.00s)
+--- PASS: TestLinkedListPartialLoop (0.00s)
+--- PASS: TestLinkedListUnconnectedPaths (0.00s)
+--- SKIP: TestNaiveFindStartAndEndFlightExtraArrival (0.00s)
+--- PASS: TestDeserializeSimpleInput (0.00s)
+--- PASS: TestNaiveFindStartAndEndFlightFlightLoop (0.00s)
+--- PASS: TestLinkedListInvalidList (0.00s)
+--- PASS: TestNaiveFindStartAndEndFlightSimple (0.00s)
+--- PASS: TestNaiveFindStartAndEndFlightComplex (0.00s)
+--- PASS: TestDeserializeComplexInput (0.00s)
 === RUN   TestLinkedListComplex
 === PAUSE TestLinkedListComplex
 === RUN   TestLinkedListHuge
@@ -142,10 +258,6 @@ ok  	github.com/SophisticaSean/flight_path_calculator/internal/controllers	0.005
 === CONT  TestNaiveFindStartAndEndFlightExtraArrival
     naive_impl_test.go:113: 
 --- SKIP: TestNaiveFindStartAndEndFlightExtraArrival (0.00s)
-=== CONT  TestLinkedListDoubleArrivals
---- PASS: TestLinkedListDoubleArrivals (0.00s)
-=== CONT  TestLinkedListInvalidList
---- PASS: TestLinkedListInvalidList (0.00s)
 === CONT  TestNaiveFindStartAndEndFlightFlightLoop
 --- PASS: TestNaiveFindStartAndEndFlightFlightLoop (0.00s)
 === CONT  TestNaiveFindStartAndEndFlightComplex
@@ -156,16 +268,20 @@ ok  	github.com/SophisticaSean/flight_path_calculator/internal/controllers	0.005
 --- PASS: TestDeserializeComplexInput (0.00s)
 === CONT  TestDeserializeSimpleInput
 --- PASS: TestDeserializeSimpleInput (0.00s)
-=== CONT  TestLinkedListUnconnectedPaths
---- PASS: TestLinkedListUnconnectedPaths (0.00s)
-=== CONT  TestLinkedListLoop
---- PASS: TestLinkedListLoop (0.00s)
-=== CONT  TestLinkedListHuge
---- PASS: TestLinkedListHuge (0.00s)
+=== CONT  TestLinkedListInvalidList
+--- PASS: TestLinkedListInvalidList (0.00s)
 === CONT  TestLinkedListPartialLoop
 --- PASS: TestLinkedListPartialLoop (0.00s)
+=== CONT  TestLinkedListLoop
 === CONT  TestLinkedListDoubleDepartures
+=== CONT  TestLinkedListDoubleArrivals
+=== CONT  TestLinkedListUnconnectedPaths
+--- PASS: TestLinkedListLoop (0.00s)
 --- PASS: TestLinkedListDoubleDepartures (0.00s)
+--- PASS: TestLinkedListDoubleArrivals (0.00s)
+--- PASS: TestLinkedListUnconnectedPaths (0.00s)
+=== CONT  TestLinkedListHuge
+--- PASS: TestLinkedListHuge (0.00s)
 === RUN   TestLinkedListComplex
 === PAUSE TestLinkedListComplex
 === RUN   TestLinkedListHuge
@@ -196,33 +312,34 @@ ok  	github.com/SophisticaSean/flight_path_calculator/internal/controllers	0.005
 === PAUSE TestNaiveFindStartAndEndFlightExtraArrival
 === CONT  TestLinkedListComplex
 === CONT  TestLinkedListInvalidList
-=== CONT  TestDeserializeSimpleInput
 --- PASS: TestLinkedListComplex (0.00s)
-=== CONT  TestLinkedListDoubleDepartures
-=== CONT  TestLinkedListDoubleArrivals
+=== CONT  TestLinkedListPartialLoop
 === CONT  TestLinkedListUnconnectedPaths
+=== CONT  TestNaiveFindStartAndEndFlightExtraArrival
 === CONT  TestLinkedListHuge
-=== CONT  TestNaiveFindStartAndEndFlightComplex
 === CONT  TestNaiveFindStartAndEndFlightExtraArrival
     naive_impl_test.go:113: 
-=== CONT  TestNaiveFindStartAndEndFlightFlightLoop
-=== CONT  TestLinkedListPartialLoop
-=== CONT  TestDeserializeComplexInput
-=== CONT  TestNaiveFindStartAndEndFlightSimple
 === CONT  TestLinkedListLoop
---- PASS: TestDeserializeSimpleInput (0.00s)
+=== CONT  TestDeserializeSimpleInput
+=== CONT  TestNaiveFindStartAndEndFlightSimple
 --- PASS: TestLinkedListInvalidList (0.00s)
---- PASS: TestLinkedListDoubleDepartures (0.00s)
---- PASS: TestLinkedListDoubleArrivals (0.00s)
---- PASS: TestLinkedListUnconnectedPaths (0.00s)
---- PASS: TestLinkedListHuge (0.00s)
---- PASS: TestNaiveFindStartAndEndFlightComplex (0.00s)
---- SKIP: TestNaiveFindStartAndEndFlightExtraArrival (0.00s)
---- PASS: TestNaiveFindStartAndEndFlightFlightLoop (0.00s)
 --- PASS: TestLinkedListPartialLoop (0.00s)
---- PASS: TestDeserializeComplexInput (0.00s)
---- PASS: TestNaiveFindStartAndEndFlightSimple (0.00s)
+=== CONT  TestLinkedListDoubleArrivals
+=== CONT  TestNaiveFindStartAndEndFlightFlightLoop
+=== CONT  TestNaiveFindStartAndEndFlightComplex
+=== CONT  TestDeserializeComplexInput
+=== CONT  TestLinkedListDoubleDepartures
+--- PASS: TestLinkedListUnconnectedPaths (0.00s)
+--- SKIP: TestNaiveFindStartAndEndFlightExtraArrival (0.00s)
+--- PASS: TestLinkedListHuge (0.00s)
+--- PASS: TestDeserializeSimpleInput (0.00s)
 --- PASS: TestLinkedListLoop (0.00s)
+--- PASS: TestNaiveFindStartAndEndFlightSimple (0.00s)
+--- PASS: TestLinkedListDoubleArrivals (0.00s)
+--- PASS: TestNaiveFindStartAndEndFlightFlightLoop (0.00s)
+--- PASS: TestNaiveFindStartAndEndFlightComplex (0.00s)
+--- PASS: TestDeserializeComplexInput (0.00s)
+--- PASS: TestLinkedListDoubleDepartures (0.00s)
 === RUN   TestLinkedListComplex
 === PAUSE TestLinkedListComplex
 === RUN   TestLinkedListHuge
@@ -253,19 +370,18 @@ ok  	github.com/SophisticaSean/flight_path_calculator/internal/controllers	0.005
 === PAUSE TestNaiveFindStartAndEndFlightExtraArrival
 === CONT  TestLinkedListComplex
 --- PASS: TestLinkedListComplex (0.00s)
-=== CONT  TestDeserializeSimpleInput
 === CONT  TestNaiveFindStartAndEndFlightSimple
-=== CONT  TestLinkedListDoubleDepartures
---- PASS: TestDeserializeSimpleInput (0.00s)
---- PASS: TestNaiveFindStartAndEndFlightSimple (0.00s)
---- PASS: TestLinkedListDoubleDepartures (0.00s)
-=== CONT  TestNaiveFindStartAndEndFlightExtraArrival
-    naive_impl_test.go:113: 
---- SKIP: TestNaiveFindStartAndEndFlightExtraArrival (0.00s)
-=== CONT  TestNaiveFindStartAndEndFlightFlightLoop
---- PASS: TestNaiveFindStartAndEndFlightFlightLoop (0.00s)
 === CONT  TestDeserializeComplexInput
 --- PASS: TestDeserializeComplexInput (0.00s)
+=== CONT  TestLinkedListDoubleDepartures
+--- PASS: TestNaiveFindStartAndEndFlightSimple (0.00s)
+=== CONT  TestDeserializeSimpleInput
+--- PASS: TestLinkedListDoubleDepartures (0.00s)
+--- PASS: TestDeserializeSimpleInput (0.00s)
+=== CONT  TestNaiveFindStartAndEndFlightFlightLoop
+--- PASS: TestNaiveFindStartAndEndFlightFlightLoop (0.00s)
+=== CONT  TestNaiveFindStartAndEndFlightComplex
+--- PASS: TestNaiveFindStartAndEndFlightComplex (0.00s)
 === CONT  TestLinkedListDoubleArrivals
 --- PASS: TestLinkedListDoubleArrivals (0.00s)
 === CONT  TestLinkedListUnconnectedPaths
@@ -278,119 +394,6 @@ ok  	github.com/SophisticaSean/flight_path_calculator/internal/controllers	0.005
 --- PASS: TestLinkedListHuge (0.00s)
 === CONT  TestLinkedListInvalidList
 --- PASS: TestLinkedListInvalidList (0.00s)
-=== CONT  TestNaiveFindStartAndEndFlightComplex
---- PASS: TestNaiveFindStartAndEndFlightComplex (0.00s)
-=== RUN   TestLinkedListComplex
-=== PAUSE TestLinkedListComplex
-=== RUN   TestLinkedListHuge
-=== PAUSE TestLinkedListHuge
-=== RUN   TestLinkedListLoop
-=== PAUSE TestLinkedListLoop
-=== RUN   TestLinkedListPartialLoop
-=== PAUSE TestLinkedListPartialLoop
-=== RUN   TestLinkedListUnconnectedPaths
-=== PAUSE TestLinkedListUnconnectedPaths
-=== RUN   TestLinkedListDoubleArrivals
-=== PAUSE TestLinkedListDoubleArrivals
-=== RUN   TestLinkedListDoubleDepartures
-=== PAUSE TestLinkedListDoubleDepartures
-=== RUN   TestLinkedListInvalidList
-=== PAUSE TestLinkedListInvalidList
-=== RUN   TestDeserializeSimpleInput
-=== PAUSE TestDeserializeSimpleInput
-=== RUN   TestDeserializeComplexInput
-=== PAUSE TestDeserializeComplexInput
-=== RUN   TestNaiveFindStartAndEndFlightSimple
-=== PAUSE TestNaiveFindStartAndEndFlightSimple
-=== RUN   TestNaiveFindStartAndEndFlightComplex
-=== PAUSE TestNaiveFindStartAndEndFlightComplex
-=== RUN   TestNaiveFindStartAndEndFlightFlightLoop
-=== PAUSE TestNaiveFindStartAndEndFlightFlightLoop
-=== RUN   TestNaiveFindStartAndEndFlightExtraArrival
-=== PAUSE TestNaiveFindStartAndEndFlightExtraArrival
-=== CONT  TestLinkedListComplex
-=== CONT  TestLinkedListInvalidList
-=== CONT  TestNaiveFindStartAndEndFlightComplex
---- PASS: TestLinkedListComplex (0.00s)
-=== CONT  TestNaiveFindStartAndEndFlightExtraArrival
-    naive_impl_test.go:113: 
-=== CONT  TestLinkedListDoubleDepartures
-=== CONT  TestLinkedListDoubleArrivals
-=== CONT  TestLinkedListUnconnectedPaths
-=== CONT  TestLinkedListPartialLoop
-=== CONT  TestLinkedListLoop
-=== CONT  TestLinkedListHuge
-=== CONT  TestDeserializeComplexInput
-=== CONT  TestNaiveFindStartAndEndFlightSimple
-=== CONT  TestDeserializeSimpleInput
-=== CONT  TestNaiveFindStartAndEndFlightFlightLoop
---- PASS: TestLinkedListInvalidList (0.00s)
---- PASS: TestNaiveFindStartAndEndFlightComplex (0.00s)
---- SKIP: TestNaiveFindStartAndEndFlightExtraArrival (0.00s)
---- PASS: TestLinkedListDoubleDepartures (0.00s)
---- PASS: TestLinkedListDoubleArrivals (0.00s)
---- PASS: TestLinkedListUnconnectedPaths (0.00s)
---- PASS: TestLinkedListPartialLoop (0.00s)
---- PASS: TestLinkedListLoop (0.00s)
---- PASS: TestLinkedListHuge (0.00s)
---- PASS: TestDeserializeComplexInput (0.00s)
---- PASS: TestNaiveFindStartAndEndFlightSimple (0.00s)
---- PASS: TestDeserializeSimpleInput (0.00s)
---- PASS: TestNaiveFindStartAndEndFlightFlightLoop (0.00s)
-=== RUN   TestLinkedListComplex
-=== PAUSE TestLinkedListComplex
-=== RUN   TestLinkedListHuge
-=== PAUSE TestLinkedListHuge
-=== RUN   TestLinkedListLoop
-=== PAUSE TestLinkedListLoop
-=== RUN   TestLinkedListPartialLoop
-=== PAUSE TestLinkedListPartialLoop
-=== RUN   TestLinkedListUnconnectedPaths
-=== PAUSE TestLinkedListUnconnectedPaths
-=== RUN   TestLinkedListDoubleArrivals
-=== PAUSE TestLinkedListDoubleArrivals
-=== RUN   TestLinkedListDoubleDepartures
-=== PAUSE TestLinkedListDoubleDepartures
-=== RUN   TestLinkedListInvalidList
-=== PAUSE TestLinkedListInvalidList
-=== RUN   TestDeserializeSimpleInput
-=== PAUSE TestDeserializeSimpleInput
-=== RUN   TestDeserializeComplexInput
-=== PAUSE TestDeserializeComplexInput
-=== RUN   TestNaiveFindStartAndEndFlightSimple
-=== PAUSE TestNaiveFindStartAndEndFlightSimple
-=== RUN   TestNaiveFindStartAndEndFlightComplex
-=== PAUSE TestNaiveFindStartAndEndFlightComplex
-=== RUN   TestNaiveFindStartAndEndFlightFlightLoop
-=== PAUSE TestNaiveFindStartAndEndFlightFlightLoop
-=== RUN   TestNaiveFindStartAndEndFlightExtraArrival
-=== PAUSE TestNaiveFindStartAndEndFlightExtraArrival
-=== CONT  TestLinkedListComplex
---- PASS: TestLinkedListComplex (0.00s)
-=== CONT  TestLinkedListDoubleDepartures
-=== CONT  TestNaiveFindStartAndEndFlightComplex
---- PASS: TestLinkedListDoubleDepartures (0.00s)
---- PASS: TestNaiveFindStartAndEndFlightComplex (0.00s)
-=== CONT  TestLinkedListDoubleArrivals
---- PASS: TestLinkedListDoubleArrivals (0.00s)
-=== CONT  TestLinkedListUnconnectedPaths
---- PASS: TestLinkedListUnconnectedPaths (0.00s)
-=== CONT  TestLinkedListPartialLoop
---- PASS: TestLinkedListPartialLoop (0.00s)
-=== CONT  TestLinkedListLoop
---- PASS: TestLinkedListLoop (0.00s)
-=== CONT  TestLinkedListHuge
---- PASS: TestLinkedListHuge (0.00s)
-=== CONT  TestDeserializeComplexInput
---- PASS: TestDeserializeComplexInput (0.00s)
-=== CONT  TestLinkedListInvalidList
---- PASS: TestLinkedListInvalidList (0.00s)
-=== CONT  TestNaiveFindStartAndEndFlightSimple
---- PASS: TestNaiveFindStartAndEndFlightSimple (0.00s)
-=== CONT  TestDeserializeSimpleInput
---- PASS: TestDeserializeSimpleInput (0.00s)
-=== CONT  TestNaiveFindStartAndEndFlightFlightLoop
---- PASS: TestNaiveFindStartAndEndFlightFlightLoop (0.00s)
 === CONT  TestNaiveFindStartAndEndFlightExtraArrival
     naive_impl_test.go:113: 
 --- SKIP: TestNaiveFindStartAndEndFlightExtraArrival (0.00s)
@@ -422,80 +425,80 @@ ok  	github.com/SophisticaSean/flight_path_calculator/internal/controllers	0.005
 === PAUSE TestNaiveFindStartAndEndFlightFlightLoop
 === RUN   TestNaiveFindStartAndEndFlightExtraArrival
 === PAUSE TestNaiveFindStartAndEndFlightExtraArrival
-=== CONT  TestDeserializeSimpleInput
 === CONT  TestLinkedListComplex
---- PASS: TestDeserializeSimpleInput (0.00s)
-=== CONT  TestNaiveFindStartAndEndFlightFlightLoop
-=== CONT  TestNaiveFindStartAndEndFlightSimple
-=== CONT  TestLinkedListUnconnectedPaths
-=== CONT  TestLinkedListInvalidList
-=== CONT  TestLinkedListPartialLoop
-=== CONT  TestLinkedListDoubleDepartures
-=== CONT  TestLinkedListLoop
-=== CONT  TestLinkedListDoubleArrivals
-=== CONT  TestLinkedListHuge
-=== CONT  TestNaiveFindStartAndEndFlightComplex
+--- PASS: TestLinkedListComplex (0.00s)
 === CONT  TestNaiveFindStartAndEndFlightExtraArrival
     naive_impl_test.go:113: 
---- PASS: TestLinkedListComplex (0.00s)
-=== CONT  TestDeserializeComplexInput
---- PASS: TestDeserializeComplexInput (0.00s)
---- PASS: TestNaiveFindStartAndEndFlightFlightLoop (0.00s)
---- PASS: TestNaiveFindStartAndEndFlightSimple (0.00s)
---- PASS: TestLinkedListUnconnectedPaths (0.00s)
---- PASS: TestLinkedListInvalidList (0.00s)
---- PASS: TestLinkedListPartialLoop (0.00s)
---- PASS: TestLinkedListDoubleDepartures (0.00s)
---- PASS: TestLinkedListLoop (0.00s)
---- PASS: TestLinkedListDoubleArrivals (0.00s)
---- PASS: TestLinkedListHuge (0.00s)
---- PASS: TestNaiveFindStartAndEndFlightComplex (0.00s)
 --- SKIP: TestNaiveFindStartAndEndFlightExtraArrival (0.00s)
+=== CONT  TestLinkedListDoubleDepartures
+=== CONT  TestLinkedListInvalidList
+--- PASS: TestLinkedListDoubleDepartures (0.00s)
+=== CONT  TestLinkedListUnconnectedPaths
+=== CONT  TestDeserializeComplexInput
+--- PASS: TestLinkedListInvalidList (0.00s)
+--- PASS: TestDeserializeComplexInput (0.00s)
+=== CONT  TestDeserializeSimpleInput
+=== CONT  TestNaiveFindStartAndEndFlightSimple
+=== CONT  TestNaiveFindStartAndEndFlightComplex
+=== CONT  TestLinkedListDoubleArrivals
+=== CONT  TestLinkedListLoop
+=== CONT  TestLinkedListHuge
+--- PASS: TestLinkedListUnconnectedPaths (0.00s)
+--- PASS: TestDeserializeSimpleInput (0.00s)
+--- PASS: TestNaiveFindStartAndEndFlightSimple (0.00s)
+--- PASS: TestNaiveFindStartAndEndFlightComplex (0.00s)
+--- PASS: TestLinkedListDoubleArrivals (0.00s)
+--- PASS: TestLinkedListLoop (0.00s)
+--- PASS: TestLinkedListHuge (0.00s)
+=== CONT  TestNaiveFindStartAndEndFlightFlightLoop
+--- PASS: TestNaiveFindStartAndEndFlightFlightLoop (0.00s)
+=== CONT  TestLinkedListPartialLoop
+--- PASS: TestLinkedListPartialLoop (0.00s)
 goos: linux
 goarch: amd64
 pkg: github.com/SophisticaSean/flight_path_calculator/internal/models
 cpu: AMD Ryzen 9 5950X 16-Core Processor            
 BenchmarkLinkedList10Flights
-BenchmarkLinkedList10Flights-32      	  130540	      4447 ns/op	    3561 B/op	      49 allocs/op
-BenchmarkLinkedList10Flights-32      	  134781	      4460 ns/op	    3562 B/op	      49 allocs/op
-BenchmarkLinkedList10Flights-32      	  128438	      4419 ns/op	    3560 B/op	      49 allocs/op
-BenchmarkLinkedList10Flights-32      	  134004	      4416 ns/op	    3561 B/op	      49 allocs/op
-BenchmarkLinkedList10Flights-32      	  135398	      4415 ns/op	    3561 B/op	      49 allocs/op
-BenchmarkLinkedList10Flights-32      	  134686	      4409 ns/op	    3561 B/op	      49 allocs/op
+BenchmarkLinkedList10Flights-32      	  114482	      4443 ns/op	    3560 B/op	      49 allocs/op
+BenchmarkLinkedList10Flights-32      	  133299	      4432 ns/op	    3560 B/op	      49 allocs/op
+BenchmarkLinkedList10Flights-32      	  134689	      4429 ns/op	    3561 B/op	      49 allocs/op
+BenchmarkLinkedList10Flights-32      	  134091	      4449 ns/op	    3561 B/op	      49 allocs/op
+BenchmarkLinkedList10Flights-32      	  135006	      4407 ns/op	    3561 B/op	      49 allocs/op
+BenchmarkLinkedList10Flights-32      	  136048	      4387 ns/op	    3561 B/op	      49 allocs/op
 BenchmarkLinkedList100Flights
-BenchmarkLinkedList100Flights-32     	     568	   1041583 ns/op	 3946608 B/op	    4160 allocs/op
-BenchmarkLinkedList100Flights-32     	     578	   1024893 ns/op	 3945549 B/op	    4159 allocs/op
-BenchmarkLinkedList100Flights-32     	     568	   1034265 ns/op	 3946122 B/op	    4160 allocs/op
-BenchmarkLinkedList100Flights-32     	     585	   1035172 ns/op	 3946237 B/op	    4160 allocs/op
-BenchmarkLinkedList100Flights-32     	     592	   1028780 ns/op	 3946347 B/op	    4159 allocs/op
-BenchmarkLinkedList100Flights-32     	     572	   1024662 ns/op	 3946240 B/op	    4160 allocs/op
+BenchmarkLinkedList100Flights-32     	     578	   1023982 ns/op	 3932956 B/op	    4142 allocs/op
+BenchmarkLinkedList100Flights-32     	     583	   1021460 ns/op	 3932590 B/op	    4143 allocs/op
+BenchmarkLinkedList100Flights-32     	     590	   1021571 ns/op	 3933517 B/op	    4142 allocs/op
+BenchmarkLinkedList100Flights-32     	     580	   1029937 ns/op	 3932889 B/op	    4142 allocs/op
+BenchmarkLinkedList100Flights-32     	     578	   1019291 ns/op	 3932710 B/op	    4142 allocs/op
+BenchmarkLinkedList100Flights-32     	     584	   1031254 ns/op	 3932777 B/op	    4142 allocs/op
 BenchmarkLinkedList1000Flights
-BenchmarkLinkedList1000Flights-32    	     582	   1033161 ns/op	 3945246 B/op	    4159 allocs/op
-BenchmarkLinkedList1000Flights-32    	     566	   1027627 ns/op	 3946467 B/op	    4160 allocs/op
-BenchmarkLinkedList1000Flights-32    	     576	   1026592 ns/op	 3946190 B/op	    4160 allocs/op
-BenchmarkLinkedList1000Flights-32    	     572	   1030088 ns/op	 3946942 B/op	    4160 allocs/op
-BenchmarkLinkedList1000Flights-32    	     565	   1040777 ns/op	 3946323 B/op	    4160 allocs/op
-BenchmarkLinkedList1000Flights-32    	     586	   1037441 ns/op	 3945953 B/op	    4160 allocs/op
+BenchmarkLinkedList1000Flights-32    	     579	   1031393 ns/op	 3932916 B/op	    4142 allocs/op
+BenchmarkLinkedList1000Flights-32    	     595	   1019568 ns/op	 3932950 B/op	    4142 allocs/op
+BenchmarkLinkedList1000Flights-32    	     576	   1019061 ns/op	 3932787 B/op	    4142 allocs/op
+BenchmarkLinkedList1000Flights-32    	     597	   1033282 ns/op	 3933245 B/op	    4142 allocs/op
+BenchmarkLinkedList1000Flights-32    	     585	   1018222 ns/op	 3932875 B/op	    4142 allocs/op
+BenchmarkLinkedList1000Flights-32    	     582	   1021040 ns/op	 3933379 B/op	    4142 allocs/op
 BenchmarkNaiveImpl10Flights
-BenchmarkNaiveImpl10Flights-32       	  635949	       886.6 ns/op	    1024 B/op	      11 allocs/op
-BenchmarkNaiveImpl10Flights-32       	  656659	       889.8 ns/op	    1024 B/op	      11 allocs/op
-BenchmarkNaiveImpl10Flights-32       	  651439	       886.3 ns/op	    1024 B/op	      11 allocs/op
-BenchmarkNaiveImpl10Flights-32       	  620270	       886.2 ns/op	    1024 B/op	      11 allocs/op
-BenchmarkNaiveImpl10Flights-32       	  649550	       883.3 ns/op	    1024 B/op	      11 allocs/op
-BenchmarkNaiveImpl10Flights-32       	  641391	       890.9 ns/op	    1024 B/op	      11 allocs/op
+BenchmarkNaiveImpl10Flights-32       	  651890	       884.3 ns/op	    1024 B/op	      11 allocs/op
+BenchmarkNaiveImpl10Flights-32       	  639860	       886.2 ns/op	    1024 B/op	      11 allocs/op
+BenchmarkNaiveImpl10Flights-32       	  636318	       890.0 ns/op	    1024 B/op	      11 allocs/op
+BenchmarkNaiveImpl10Flights-32       	  647534	       888.1 ns/op	    1024 B/op	      11 allocs/op
+BenchmarkNaiveImpl10Flights-32       	  630924	       885.9 ns/op	    1024 B/op	      11 allocs/op
+BenchmarkNaiveImpl10Flights-32       	  634222	       883.5 ns/op	    1024 B/op	      11 allocs/op
 BenchmarkNaive100Flights
-BenchmarkNaive100Flights-32          	   18171	     33002 ns/op	    8196 B/op	      17 allocs/op
-BenchmarkNaive100Flights-32          	   18212	     32989 ns/op	    8196 B/op	      17 allocs/op
-BenchmarkNaive100Flights-32          	   18170	     32817 ns/op	    8196 B/op	      17 allocs/op
-BenchmarkNaive100Flights-32          	   18072	     32879 ns/op	    8196 B/op	      17 allocs/op
-BenchmarkNaive100Flights-32          	   18122	     33224 ns/op	    8196 B/op	      17 allocs/op
-BenchmarkNaive100Flights-32          	   18200	     32859 ns/op	    8196 B/op	      17 allocs/op
+BenchmarkNaive100Flights-32          	   18250	     32904 ns/op	    8192 B/op	      17 allocs/op
+BenchmarkNaive100Flights-32          	   18350	     32993 ns/op	    8192 B/op	      17 allocs/op
+BenchmarkNaive100Flights-32          	   18295	     32789 ns/op	    8192 B/op	      17 allocs/op
+BenchmarkNaive100Flights-32          	   18259	     32790 ns/op	    8192 B/op	      17 allocs/op
+BenchmarkNaive100Flights-32          	   17450	     32891 ns/op	    8192 B/op	      17 allocs/op
+BenchmarkNaive100Flights-32          	   18164	     32906 ns/op	    8192 B/op	      17 allocs/op
 BenchmarkNaive1000Flights
-BenchmarkNaive1000Flights-32         	     200	   2962871 ns/op	  119536 B/op	      55 allocs/op
-BenchmarkNaive1000Flights-32         	     200	   2965255 ns/op	  119527 B/op	      55 allocs/op
-BenchmarkNaive1000Flights-32         	     200	   3006970 ns/op	  119540 B/op	      55 allocs/op
-BenchmarkNaive1000Flights-32         	     200	   2971828 ns/op	  119569 B/op	      55 allocs/op
-BenchmarkNaive1000Flights-32         	     200	   2970170 ns/op	  119570 B/op	      55 allocs/op
-BenchmarkNaive1000Flights-32         	     200	   2964693 ns/op	  119532 B/op	      55 allocs/op
+BenchmarkNaive1000Flights-32         	     200	   2965727 ns/op	  100865 B/op	      25 allocs/op
+BenchmarkNaive1000Flights-32         	     202	   2951577 ns/op	  100865 B/op	      25 allocs/op
+BenchmarkNaive1000Flights-32         	     198	   2983212 ns/op	  100865 B/op	      25 allocs/op
+BenchmarkNaive1000Flights-32         	     202	   2951374 ns/op	  100864 B/op	      25 allocs/op
+BenchmarkNaive1000Flights-32         	     202	   2959816 ns/op	  100864 B/op	      25 allocs/op
+BenchmarkNaive1000Flights-32         	     201	   2968163 ns/op	  100864 B/op	      25 allocs/op
 PASS
-ok  	github.com/SophisticaSean/flight_path_calculator/internal/models	26.496s
+ok  	github.com/SophisticaSean/flight_path_calculator/internal/models	26.785s

@@ -33,6 +33,8 @@ func BenchmarkLinkedList10Flights(b *testing.B) {
 
 	flightOutput := fi.FindStartAndEndFlightLinkedList()
 
+	// reset timer since we ran expensive setup funcs
+	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
 		flightOutput = fi.FindStartAndEndFlightLinkedList()
 	}
@@ -48,6 +50,8 @@ func BenchmarkLinkedList100Flights(b *testing.B) {
 
 	flightOutput := fi.FindStartAndEndFlightLinkedList()
 
+	// reset timer since we ran expensive setup funcs
+	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
 		flightOutput = fi.FindStartAndEndFlightLinkedList()
 	}
@@ -63,6 +67,8 @@ func BenchmarkLinkedList1000Flights(b *testing.B) {
 
 	flightOutput := fi.FindStartAndEndFlightLinkedList()
 
+	// reset timer since we ran expensive setup funcs
+	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
 		flightOutput = fi.FindStartAndEndFlightLinkedList()
 	}
@@ -96,6 +102,8 @@ func BenchmarkNaiveImpl10Flights(b *testing.B) {
 
 	flightOutput := fi.FindStartAndEndFlightNaive()
 
+	// reset timer since we ran expensive setup funcs
+	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
 		flightOutput = fi.FindStartAndEndFlightNaive()
 	}
@@ -112,6 +120,8 @@ func BenchmarkNaive100Flights(b *testing.B) {
 
 	flightOutput := fi.FindStartAndEndFlightNaive()
 
+	// reset timer since we ran expensive setup funcs
+	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
 		flightOutput = fi.FindStartAndEndFlightNaive()
 	}
@@ -125,6 +135,8 @@ func BenchmarkNaive1000Flights(b *testing.B) {
 
 	flightOutput := fi.FindStartAndEndFlightNaive()
 
+	// reset timer since we ran expensive setup funcs
+	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
 		flightOutput = fi.FindStartAndEndFlightNaive()
 	}
