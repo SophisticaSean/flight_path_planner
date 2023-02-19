@@ -48,7 +48,7 @@
   - `ErrorInformation` is unused and is unwrapped and return in a 400 BAD REQUEST body if it exists.
 
   ### Benchmarks
-  - `go test -bench=. -benchtime=1000ms ./...`
+  - `go test -bench=. -benchtime=500ms ./...`
   - results:
   ```bash
 go test -bench=. -benchtime=500ms ./... 

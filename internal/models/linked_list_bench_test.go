@@ -176,7 +176,7 @@ func generateRandomFlightPath(length int) (flights models.FlightsInput, solution
 func genTestFlightPath(flights []string) (output string) {
 	for i, flight := range flights {
 		if i == 0 {
-			output = fmt.Sprintf("%s", flight)
+			output = flight
 		} else {
 			output = fmt.Sprintf("%s - %s", output, flight)
 		}
