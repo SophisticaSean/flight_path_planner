@@ -49,6 +49,31 @@
 
   ### Benchmarks
   - `go test -bench=. -benchtime=1000ms ./...`
+  - results:
+  ```bash
+go test -bench=. -benchtime=500ms ./... 
+?       github.com/SophisticaSean/flight_path_calculator        [no test files]
+SLC - JFK - SFO - ABS
+First departure: SLC
+Last arrival: ABS
+
+First departure: 
+Last arrival: 
+PASS
+ok      github.com/SophisticaSean/flight_path_calculator/internal/controllers   0.003s
+goos: linux
+goarch: amd64
+pkg: github.com/SophisticaSean/flight_path_calculator/internal/models
+cpu: AMD Ryzen 9 5950X 16-Core Processor            
+BenchmarkLinkedList10Flights-32           133962              4464 ns/op
+BenchmarkLinkedList100Flights-32             582            999663 ns/op
+BenchmarkLinkedList1000Flights-32            583           1024012 ns/op
+BenchmarkNaiveImpl10Flights-32            623413               886.0 ns/op
+BenchmarkNaive100Flights-32                18184             33355 ns/op
+BenchmarkNaive1000Flights-32                 194           2971799 ns/op
+PASS
+ok      github.com/SophisticaSean/flight_path_calculator/internal/models        4.401s
+```
 
   ### Code Coverage
   To compute the above code coverage locally, use `go test --cover ./...`
